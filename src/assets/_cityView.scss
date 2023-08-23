@@ -1,0 +1,55 @@
+#cityView {
+
+  .banner {
+    background-image: url(../assets/images/home-banner.png);
+    height: 30vh;
+    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+  }
+  .search-bar {
+    position: relative;
+    top: 85%;
+  }
+  .v-card-title {
+    background-color: rgba(255,255,255,0.9) !important;
+  }
+  #search-icon .v-icon {
+    position: absolute;
+    color: var(--secondary-color);
+    right: 10px;
+    font-size: 3rem;
+    animation: shake 2s infinite;
+    @keyframes shake {
+      0% { transform: rotate(1deg); }
+      10% { transform:  rotate(-5deg); }
+      20% { transform:  rotate(5deg); }
+      90% { transform: rotate(0deg); }
+      100% { transform:  rotate(-1deg); }
+    }}
+}
+
+.city-contain {
+  height: auto;
+  .data-not-found {
+    background-image: url(../assets/images/lost.png);
+    height: 50vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    position: relative;
+    top: 40% !important;
+  }
+  #cityView {
+    .v-row {
+      margin: 0 !important;
+    }
+  }
+}
