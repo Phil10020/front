@@ -44,7 +44,7 @@ apiAuth.interceptors.response.use(res => {
 })
 
 // 政府資料API-------------------
-async function getAccessToken () {
+const accessToken = async function () {
   const parameter = {
     grant_type: 'client_credentials',
     client_id: import.meta.env.VITE_CLIENT_ID,
@@ -69,31 +69,32 @@ async function getAccessToken () {
   }
 }
 
-const accessToken = await getAccessToken()
+const createApiInstance = async (baseURL, headers = {}) => {
+  const token = await accessToken() // 等待令牌的获取
+  return axios.create({
+    baseURL,
+    headers: {
+      ...headers,
+      Authorization: token.authorization
+    }
+  })
+}
 
-const createApiInstance = (baseURL, headers = {}) => axios.create({
-  baseURL,
-  headers: {
-    ...headers,
-    Authorization: accessToken.authorization
-  }
-})
-
-export const sportApi = createApiInstance('https://tdx.transportdata.tw/api/basic/v2/Tourism/ScenicSpot/', {
+export const sportApi = await createApiInstance('https://tdx.transportdata.tw/api/basic/v2/Tourism/ScenicSpot/', {
   Authorization: accessToken.authorization
 })
-export const foodApi = createApiInstance('https://tdx.transportdata.tw/api/basic/v2/Tourism/Restaurant/', {
+export const foodApi = await createApiInstance('https://tdx.transportdata.tw/api/basic/v2/Tourism/Restaurant/', {
   Authorization: accessToken.authorization
 })
-export const hotelApi = createApiInstance('https://tdx.transportdata.tw/api/basic/v2/Tourism/Hotel/', {
+export const hotelApi = await createApiInstance('https://tdx.transportdata.tw/api/basic/v2/Tourism/Hotel/', {
   Authorization: accessToken.authorization
 })
-export const activityApi = createApiInstance('https://tdx.transportdata.tw/api/basic/v2/Tourism/Activity/', {
+export const activityApi = await createApiInstance('https://tdx.transportdata.tw/api/basic/v2/Tourism/Activity/', {
   Authorization: accessToken.authorization
 })
-export const tdxApi = createApiInstance('https://tdx.transportdata.tw/api/basic/v2/Tourism/', {
+export const tdxApi = await createApiInstance('https://tdx.transportdata.tw/api/basic/v2/Tourism/', {
   Authorization: accessToken.authorization
 })
-export const cityApi = createApiInstance('https://tdx.transportdata.tw/api/basic/v2/Basic/City?%24format=JSON', {
+export const cityApi = await createApiInstance('https://tdx.transportdata.tw/api/basic/v2/Basic/City?%24format=JSON', {
   Authorization: accessToken.authorization
 })
