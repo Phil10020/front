@@ -23,6 +23,8 @@ import './assets/main.scss'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
+import { initApi } from './plugins/axios'
+
 const app = createApp(App)
 
 app.mixin({
@@ -37,7 +39,11 @@ app.use(VueGoogleMaps, {
   },
   installComponents: true
 })
-
 registerPlugins(app)
 
-app.mount('#app')
+const main = async () => {
+  await initApi()
+  app.mount('#app')
+}
+main()
+
