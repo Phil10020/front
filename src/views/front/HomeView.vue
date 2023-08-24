@@ -14,7 +14,7 @@
   <section class="section01 d-flex justify-center align-end" id="section01">
     <!-- <div class="background" />
      -->
-     <video src="../../assets/images/bg.mp4" autoplay loop muted></video>
+     <video class="section01-video" src="../../assets/images/bg.mp4" autoplay loop muted></video>
     <v-row class="section01-mask d-flex align-center">
       <v-col cols="12">
         <div class="mask-filter relative top-0 d-flex flex-column align-center  justify-center">
