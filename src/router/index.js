@@ -71,7 +71,7 @@ const routes = [
         name: 'Cart',
         component: () => import(/* webpackChunkName: "cart" */ '@/views/front/CartView.vue'),
         meta: {
-          title: '旅圖 | 購物車',
+          title: '旅圖 | 行程管理',
           login: true,
           admin: false
         }

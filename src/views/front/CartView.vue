@@ -38,7 +38,7 @@
               </td>
             </tr>
             <tr v-if="cart.length === 0">
-              <td colspan="6" class="text-center">沒有商品</td>
+              <td colspan="6" class="text-center">沒有行程</td>
             </tr>
           </tbody>
         </VTable>
