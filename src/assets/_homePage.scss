@@ -16,12 +16,15 @@ body {
   
 }
 .section01 {
+  .v-row {
+    margin: 0;
+  }
   color: white;
   position: relative;
   height: 100vh;
-  // &-video {
-  
-  // }
+  &-video {
+    width: 100vw;
+  }
   &-mask {
     width: 50vw;
     height: 50vh;
@@ -76,6 +79,7 @@ body {
   }
 }
 .section02 {
+
   &-text {
     color: red !important;
   }
@@ -106,6 +110,9 @@ body {
   }
 }
 .section03 {
+  .v-img {
+    height: 250px;
+  }
   position: relative;
   &-bg {
     width: 100%;
@@ -146,6 +153,10 @@ body {
 }
 
 .section04 {
+  .v-img {
+    top: 40px;
+    left: -40px;
+  }
   &-card {
     background-color: white !important;
     border: 8px solid rgba(215, 242, 141, 1) ;
@@ -226,8 +237,9 @@ body {
     }
   }
   &-swiper {
-    padding-left: 20%;
     height: 600px;
+    padding: 0 10%;
+    width: 80%;
   }
 }
 
@@ -349,7 +361,6 @@ footer {
 
 .swiper {
   height: 100%;
-  width: 100%;
 }
 
 a {
@@ -364,27 +375,35 @@ a {
   @keyframes btnAnimation {
     0% {
       opacity: 1;
-      transform: scale(1);
+      transform: scale(0.8);
     }
     50% {
       opacity: 0.5;
-      transform: scale(1.2);
+      transform: scale(1);
     }
     100% {
       opacity: 1;
-      transform: scale(1);
+      transform: scale(0.8);
     }
   }
 }
 
 @media (max-width: 768px) {
   .section01 {
+    height: 50vh;
+    &-video {
+      position: absolute;
+      top: 0;
+    }
     .v-row {
       margin: 0 !important;
     }
   }
   .section01-mask {
-    width: 100%;
+    width: 50%;
+    right: 3%;
+    top: 50%;
+    height: 20vh;
     p {
       font-size: 24px;
     }
@@ -420,13 +439,106 @@ a {
     }
   }
 
-  .section05-swiper {
-    padding-left: 10%;
+  .section05 {
+    &-swiper {
+      padding: 0 ;
+    }
+    .swiper-slide {
+      width: 80% !important;
+    }
+    .swiper {
+      width: 80% !important;
+    }
   }
 
   footer {
     p {
       font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 623px) {
+  .category-border-l,  .category-border-r {
+    font-size: 24px;
+  }
+  .section01 {
+    height: 30vh;
+    &-video {
+      position: absolute;
+      top: 0;
+    }
+    .v-row {
+      margin: 0 !important;
+    }
+  }
+  .section01-mask {
+    width: 80%;
+    right: 50%;
+    top: 10%;
+    height: 20vh;
+    transform: translateX(50%);
+    p {
+      font-size: 16px;
+    }
+  }
+  .section02 {
+    &-card-text {
+      font-size: 20px;
+    }
+  }
+  .section03 {
+    .v-img {
+      height: 200px;
+    }
+    &-bg {
+      height: 80vh;
+    }
+    
+  }
+
+  .section04 {
+    h1 {
+      font-size: 24px;
+      vertical-align: middle;
+    }
+    .v-img {
+      margin-top: 5px;
+      top: 0;
+    }
+  }
+
+  .section05 {
+    .btn-sm {
+      justify-content: start !important;
+     .v-btn {
+      padding: 5px;
+      font-size: 16px;
+     }
+    }
+    &-card-title {
+      padding: 0;
+    }
+    h1 {
+      font-size: 20px;
+    }
+    h3 {
+      font-size: 16px;
+    }
+    &-swiper {
+      padding-left: 0 ;
+    }
+    .swiper-slide {
+      width: 100% !important;
+    }
+    .swiper {
+      width: 55% !important;
+    }
+  }
+
+  footer {
+    p {
+      font-size: 14px;
     }
   }
 }

@@ -170,14 +170,6 @@ const formattedUpdateTime = computed(() => {
 })
 
 // GoogleMap
-const markers = [
-  {
-    position: {
-      lat: 25.120929718017578,
-      lng: 121.46192169189453
-    }
-  }
-]
 
 const mapIcon = {
   icon1
@@ -198,7 +190,7 @@ const addCart = async () => {
       productID: data[0][category + 'ID'],
       productCategory: category,
       productCity: city,
-      action: 'add',
+      action: 'add'
     })
     user.cart = res.result
     console.log('test2')

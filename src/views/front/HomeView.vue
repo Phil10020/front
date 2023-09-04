@@ -5,7 +5,7 @@
     <v-img src="https://cdn.vuetifyjs.com/docs/images/graphics/img-placeholder.png" height="88" cover></v-img>
   </v-sheet> -->
   <v-sheet
-    v-show="showToTop" class="toTopBtn position-sticky" @click="scrollToTop"
+    v-show="showToTop" class="toTopBtn position-sticky " @click="scrollToTop"
     max-width="100" max-height="100"
     color="transparent"
   >
@@ -32,7 +32,7 @@
         </div>
       </v-col> -->
     </v-row>
-    <div class="section01-btn">
+    <div class="section01-btn d-md-block d-none">
       <v-btn icon color="transparent" borderless elevation="0" class="relative" @click="scrollToNextSection">
         <v-icon size="60" color="white">mdi-chevron-double-down</v-icon>
       </v-btn>
@@ -159,7 +159,6 @@
 
       <v-img
         cover
-        height="250"
         :src="food[test1]?.Picture.PictureUrl1"
       ></v-img>
 
@@ -208,7 +207,6 @@
 
       <v-img
         cover
-        height="250"
         :src="food[test2]?.Picture.PictureUrl1"
       ></v-img>
 
@@ -258,7 +256,6 @@
 
       <v-img
         cover
-        height="250"
         :src="food[test3]?.Picture.PictureUrl1"
       ></v-img>
 
@@ -308,7 +305,6 @@
 
       <v-img
         cover
-        height="250"
         :src="food[test4]?.Picture.PictureUrl1"
       ></v-img>
 
@@ -366,7 +362,6 @@
             width="100vw"
             :src="hotel[test1]?.Picture.PictureUrl1"
             cover
-            style="top: 40px;left: -40px;"
           >
             <!-- <v-card-title v-if="hotel[test4]?.Spec" class="section04-card-title">{{ hotel[test4]?.Spec }}</v-card-title> -->
           </v-img>
@@ -411,7 +406,6 @@
             width="100vw"
             :src="hotel[test2]?.Picture.PictureUrl1"
             cover
-            style="top: 40px;right: -40px;"
           >
             <!-- <v-card-title v-if="hotel[test4]?.Spec" class="section04-card-title">{{ hotel[test4]?.Spec }}</v-card-title> -->
           </v-img>
@@ -451,18 +445,17 @@
     <v-container class="d-flex justify-center section05-swiper">
       <swiper
       :autoplay="{
-      delay: 2500,
+      delay: 25000000,
       disableOnInteraction: false,
     }"
       :effect="'cards'"
       :grabCursor="true"
       :modules="modules"
-      :width="800"
       :height="500"
       class="mySwiper"
     >
       <swiper-slide class="section05-card d-flex" v-for="activities in activity" :key="activities.ActivityID">
-        <v-sheet class="section05-card d-flex align-center">
+        <v-sheet class=" d-flex align-center">
           <div class="section05-card-bg" :style="{ 'background-image': `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${activities?.Picture.PictureUrl1})` }"></div>
           <div class="section05-card-text">
             <div class="d-flex align-center justify-center section05-card-title">
@@ -481,7 +474,7 @@
                 <h3>敘述:</h3>
                 <h3 class="food-description">{{ activities?.Description }}</h3>
               </div>
-              <div class="d-flex justify-center mt-5">
+              <div class="btn-sm d-flex justify-center mt-5">
                 <router-link v-if="activities?.ActivityID !== undefined" :to="{ name: 'CityDetail', query: { id: activities?.ActivityID, category: 'Activity', city: 'Taipei' }}">
                   <v-btn class="" size="x-large" color="primary">詳細資訊</v-btn>
                 </router-link>
@@ -567,8 +560,8 @@ const fetchData = async (api, url, dataArr) => {
   await fetchData(hotelApi, hotelUrl, hotel)
   await fetchData(activityApi, activityUrl, activity)
 
-  console.log('sport', sport)
-  console.log('hotel', hotel)
+  // console.log('sport', sport)
+  // console.log('hotel', hotel)
 })()
 
 // 產生隨機值
@@ -602,7 +595,7 @@ const pic3 = randomValue()
 const pic4 = randomValue()
 const pic5 = randomValue()
 
-console.log('hotel', hotel)
+// console.log('hotel', hotel)
 const scrollToNextSection = () => {
   const nextSection = document.getElementById('section02')
   if (nextSection) {
