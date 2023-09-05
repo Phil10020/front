@@ -120,19 +120,19 @@ const options = {
   ]
 }
 
-const clusterIcon = [
-  {
-    textColor: 'black',
-    url: logoSVG,
-    height: 50,
-    width: 50,
-    textSize: 20,
-    anchorText: [12, 0]
-  }
-]
+// const clusterIcon = [
+//   {
+//     textColor: 'black',
+//     url: logoSVG,
+//     height: 50,
+//     width: 50,
+//     textSize: 20,
+//     anchorText: [12, 0]
+//   }
+// ]
 
-const mapImg = {
-  icon1: logoSVG,
-  vector: logoSVG
-}
+// const mapImg = {
+//   icon1: logoSVG,
+//   vector: logoSVG
+// }
 </script>

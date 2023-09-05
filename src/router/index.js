@@ -154,7 +154,7 @@ router.beforeEach(async (to, from, next) => {
     // 如果沒登入，去需要登入的頁面，導向回登入頁
     next('/login')
   } else if (to.meta.admin && !user.isAdmin) {
-    // 如果不是管理員，去需要管理員，導向回首頁
+    // 去管理員頁面，如果不是管理員，導向回首頁
     next('/')
   } else {
     // 不做導向
